@@ -46,9 +46,5 @@ func sendConfirmation(str string, ctx telebot.Context) {
 	reply := ctx.Bot().NewMarkup()
 	reply.Reply(reply.Row(reply.Text("Yes"), reply.Text("No")))
 	reply.OneTimeKeyboard = true
-	ctx.Send(str, &telebot.SendOptions{
-		ReplyMarkup: reply,
-		ParseMode:   telebot.ModeMarkdownV2,
-	})
-
+	ctx.Send(str, reply)
 }
